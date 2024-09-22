@@ -19,11 +19,13 @@ auth_tokens:
     keys: ['token']
 
 credentials:
-  - key: 'username'
-    search: ['(.*)']
+  username:
+    key: 'Username'
+    search: '(.*)'
     type: 'post'
-  - key: 'password'
-    search: ['(.*)']
+  password:
+    key: 'password'
+    search: '(.*)'
     type: 'post'
 
 login:
