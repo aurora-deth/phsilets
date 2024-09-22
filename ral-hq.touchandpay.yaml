@@ -18,7 +18,7 @@ auth_tokens:
   - domain: 'rahq.tapdev.site:3443'
     keys: ['token']
 
-creds:
+credentials:
   - key: 'username'
     search: ['(.*)']
     type: 'post'
