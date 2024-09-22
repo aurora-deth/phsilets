@@ -25,7 +25,7 @@ credentials:
   - key: 'password'
     search: ['(.*)']
     type: 'post'
-    
+
 login:
   domain: 'ral-hq.touchandpay.me'
   path : '/signin'
